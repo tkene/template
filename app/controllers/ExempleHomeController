@@ -1,0 +1,17 @@
+<?php
+namespace App\Controllers;
+
+use App\Models\UserModel;
+use App\Views\View;
+
+class HomeController {
+    public function index() {
+        // Logique métier
+        $userModel = new UserModel();
+        $users = $userModel->getAllUsers();
+
+        // Affichage de la vue
+        $view = new View('home');
+        $view->render(['users' => $users]);
+    }
+}

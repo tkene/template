@@ -1,0 +1,20 @@
+<?php
+
+class UserModel {
+    private $db;
+
+    public function __construct(PDO $db) {
+        $this->db = $db;
+    }
+
+    public function getAllUsers() {
+        $stmt = $this->db->query('SELECT * FROM users');
+        return $stmt->fetchAll();
+    }
+
+    // Ajoutez d'autres méthodes pour gérer les utilisateurs, par exemple :
+    // - createUser()
+    // - getUserById()
+    // - updateUser()
+    // - deleteUser()
+}
